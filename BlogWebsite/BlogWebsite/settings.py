@@ -8,6 +8,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# how to send password reset email
+# if it is in fake environment - if it is in development environment
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 INSTALLED_APPS = [
     # Django apps
     'django.contrib.admin',
