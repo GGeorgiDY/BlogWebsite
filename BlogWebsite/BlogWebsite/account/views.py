@@ -68,6 +68,8 @@ def account_view(request):
     if request.POST:
         form = AccountUpdateForm(request.POST, instance=request.user)
         if form.is_valid():
+            # I set this here because I want when I change the username or the email, they to be immediately filled in
+            # the form. Without this I see the old username or password despite the changes.
             form.initial = {
                     "email": request.POST['email'],
                     "username": request.POST['username'],
